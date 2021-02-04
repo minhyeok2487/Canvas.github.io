@@ -1,3 +1,5 @@
+const hide = document.getElementById("hide");
+
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
@@ -89,9 +91,6 @@ function handleSaveAsClick() {
   name.value = '';
 }
 
-
-
-
 if(canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
@@ -117,4 +116,18 @@ if (saveBtn) {
 
 if (saveAsBtn) {
   saveAsBtn.addEventListener("click", handleSaveAsClick);
+}
+
+function HideShow(){
+  var jsColors = document.getElementById("jsColors");
+  if (jsColors.style.display === "none") {
+    jsColors.style.animation=`fadeIn 1s`;
+    jsColors.style.display = "flex";
+  } else {
+    jsColors.style.display = "none";
+  }
+}
+
+if (hide) {
+  hide.addEventListener("click", HideShow);
 }
