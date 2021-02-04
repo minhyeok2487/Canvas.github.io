@@ -1,1 +1,1 @@
-# Webgame_with_vanillaJS
+# Canvas_with_vanillaJS
