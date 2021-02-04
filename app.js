@@ -5,6 +5,7 @@ const current = document.getElementsByClassName("Currnet_Color");
 const mode = document.getElementById("jsMode");
 const range = document.getElementById("jsRange");
 const saveBtn = document.getElementById("jsSave");
+const saveAsBtn = document.getElementById("jsSaveAs");
 
 const INITIAL_COLOR = "#2c2c2c";
 
@@ -78,6 +79,18 @@ function handleSaveClick() {
   link.click();
 }
 
+function handleSaveAsClick() {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  var name = document.getElementById("name");
+  link.href = image;
+  link.download = name.value;
+  link.click();
+  name.value = '';
+}
+
+
+
 
 if(canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
@@ -100,4 +113,8 @@ if (mode) {
 
 if (saveBtn) {
   saveBtn.addEventListener("click", handleSaveClick);
+}
+
+if (saveAsBtn) {
+  saveAsBtn.addEventListener("click", handleSaveAsClick);
 }
